@@ -159,7 +159,7 @@ Outputs Accuracy, Precision, Recall, F1-Score, and a complete Confusion Matrix.
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](file:///c:/Users/ompat/Desktop/fack%20news%20detection/LICENSE) file for full details.
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for full details.
 
 Copyright (c) 2026 OM Patel.
 
