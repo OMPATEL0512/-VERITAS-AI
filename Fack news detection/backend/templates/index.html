@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERITAS AI — Advanced Neural Fake News Detector & Multimodal Verification</title>
+    <meta name="description" content="State-of-the-art Fake News and Misinformation Detection powered by Deep Learning, RoBERTa Transformers, Multimodal OCR, Voice Input, and Real-time Linguistic Explainability.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome / Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External Libraries: Chart.js, Tesseract.js, html2canvas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=20260912_99">
+</head>
+<body>
+    <!-- Cinematic 3D Newspaper Dive Intro Overlay (5-10 Seconds Experience) -->
+    <div id="newspaperIntroOverlay" class="newspaper-intro-overlay active" role="dialog" aria-label="3D Newspaper Portal Intro">
+        <!-- Ambient Atmosphere: Dust motes & cinematic lights -->
+        <div class="intro-backdrop">
+            <div class="intro-light-beam"></div>
+            <div class="intro-dust-layer" id="introDustLayer"></div>
+            <div class="intro-vignette"></div>
+            <div class="intro-grid-portal"></div>
+        </div>
+
+        <!-- 3D Perspective Canvas Container -->
+        <div class="intro-3d-viewport" id="introViewport">
+            <!-- Floating 3D Newspaper -->
+            <article class="newspaper-3d-sheet" id="newspaperSheet">
+                <div class="paper-texture-overlay"></div>
+                <div class="paper-crease-shadow"></div>
+                <div class="paper-vintage-vignette"></div>
+
+                <!-- Newspaper Header / Masthead -->
+                <header class="paper-header">
+                    <div class="paper-top-meta">
+                        <span>INTERNATIONAL ARCHIVE EDITION</span>
+                        <span>•</span>
+                        <span>VOL. LXXVIII NO. 28,491</span>
+                        <span>•</span>
+                        <span>SATURDAY, SEPTEMBER 12, 2026</span>
+                        <span>•</span>
+                        <span>PRICE $1.50 • GLOBAL DISPATCH</span>
+                    </div>
+                    <div class="paper-masthead-box">
+                        <div class="masthead-ornament-left">✦ ✦ ✦</div>
+                        <h1 class="paper-masthead-title">The Veritas Chronicle</h1>
+                        <div class="masthead-ornament-right">✦ ✦ ✦</div>
+                    </div>
+                    <div class="paper-motto-bar">
+                        <span>"ALL THE FACTS VERIFIED, ALL FALSEHOODS EXPOSED"</span>
+                        <span class="motto-divider">|</span>
+                        <span>CHIEF INVESTIGATIVE BUREAU & NEURAL VERIFICATION DIVISION</span>
+                    </div>
+                </header>
+
+                <!-- Main Frontpage Layout Grid -->
+                <div class="paper-front-grid">
+                    <!-- Left Lead Column: Big Headline & Main Story -->
+                    <section class="paper-col-lead">
+                        <div class="lead-kicker">BREAKING WORLD INVESTIGATION</div>
+                        <h2 class="lead-headline">NEURAL SYSTEMS UNVEIL TRUTH IN MASS DIGITAL MEDIA</h2>
+                        <div class="lead-byline">
+                            <span class="byline-label">By Senior Investigative Reporter</span>
+                            <strong class="byline-author highlight-om-patel">OM Patel</strong>
+                            <span class="byline-title">& Veritas AI Global Intelligence Bureau</span>
+                        </div>
+                        <div class="lead-article-body">
+                            <p class="dropcap-p">
+                                <span class="paper-dropcap">A</span>cross global communication networks today, advanced multimodal neural verification architectures have begun processing millions of digital claims per second. Lead investigator <strong class="subtle-name">OM Patel</strong> confirmed in Geneva this morning that algorithmic transparency now allows synthetic misinformation and deep-learning hallucinations to be dismantled in sub-hundred millisecond intervals.
+                            </p>
+                            <p>
+                                "The era of unchecked deception is closing," remarked <strong class="subtle-name">OM Patel</strong> from the verification headquarters. "By pairing RoBERTa transformer token embeddings with linguistic citation graph tracing, readers across every continent gain unprecedented clarity into truth veracity."
+                            </p>
+                            <blockquote class="paper-pullquote">
+                                "Verifiable facts are the bedrock of human progress." — <span class="quote-author">OM Patel</span>
+                            </blockquote>
+                        </div>
+                    </section>
+
+                    <!-- Center Fold / Vertical Divider -->
+                    <div class="paper-vertical-rule"></div>
+
+                    <!-- Right Column: Secondary Stories & Editorial Board -->
+                    <section class="paper-col-secondary">
+                        <div class="story-card-top">
+                            <span class="small-tag">MARKET & TECHNOLOGY REPORT</span>
+                            <h3 class="secondary-headline">GLOBAL TRUST SURGES 42% AS REAL-TIME FACT CHECKING EXPANDS</h3>
+                            <p class="secondary-snippet">
+                                Financial markets and scientific journals report soaring accuracy metrics following the widespread deployment of neural linguistic analyzers. Contributing analysis by <strong class="subtle-name">OM Patel</strong> highlighted record-high public confidence ratings.
+                            </p>
+                        </div>
+
+                        <div class="story-divider-hr"></div>
+
+                        <div class="story-card-middle">
+                            <div class="mini-classifieds">
+                                <div class="classified-header">EDITORIAL & INVESTIGATIVE DIRECTORY</div>
+                                <div class="classified-item">
+                                    <span class="role">Executive Editor:</span>
+                                    <span class="name">Veritas AI Board</span>
+                                </div>
+                                <div class="classified-item">
+                                    <span class="role">Chief Investigative Bureau:</span>
+                                    <strong class="name subtle-name">OM Patel</strong>
+                                </div>
+                                <div class="classified-item">
+                                    <span class="role">Neural Architecture Lead:</span>
+                                    <span class="name">Veritas Neural Lab</span>
+                                </div>
+                                <div class="classified-item">
+                                    <span class="role">Special Contributing Analyst:</span>
+                                    <strong class="name subtle-name">OM Patel</strong>
+                                </div>
+                                <div class="classified-item">
+                                    <span class="role">Global Bureaus:</span>
+                                    <span class="name">London • New York • Tokyo • New Delhi</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vintage Wax Truth Seal -->
+                        <div class="paper-seal-box">
+                            <div class="wax-seal">
+                                <i class="fa-solid fa-stamp"></i>
+                                <span class="seal-text">VERITAS AUTHENTIC</span>
+                                <span class="seal-subtext">CERTIFIED: OM PATEL</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Bottom Footer Bar -->
+                <footer class="paper-footer-bar">
+                    <span>INDEX: WORLD P.1-4 • SCIENCE P.5 • NEURAL AI P.6 • SPECIAL INVESTIGATION BY OM PATEL P.8</span>
+                    <span>VERIFICATION ENGINE ACTIVE • 2026 EDITION</span>
+                </footer>
+
+                <!-- Portal Core at Center: The wormhole camera dives into -->
+                <div class="newspaper-portal-target" id="portalTarget">
+                    <div class="portal-ring ring-1"></div>
+                    <div class="portal-ring ring-2"></div>
+                    <div class="portal-ring ring-3"></div>
+                    <div class="portal-core-flash"></div>
+                </div>
+            </article>
+
+            <!-- 3D Floating Headline Fragments flying past camera during zoom -->
+            <div class="flying-fragments-layer" id="flyingFragments">
+                <span class="frag frag-1">TRUTH VERIFIED</span>
+                <span class="frag frag-2">OM PATEL INVESTIGATION</span>
+                <span class="frag frag-3">NEURAL AUDIT</span>
+                <span class="frag frag-4">ROBERTA TRANSFORMER</span>
+                <span class="frag frag-5">FACT-CHECKED 100%</span>
+                <span class="frag frag-6">VERITAS INTELLIGENCE</span>
+            </div>
+        </div>
+
+        <!-- Cinematic Controls & Progress HUD -->
+        <div class="intro-hud">
+            <div class="intro-hud-top">
+                <div class="intro-brand-badge">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>VERITAS <strong>CHRONICLE PORTAL</strong></span>
+                </div>
+                <button class="skip-intro-btn" id="skipIntroBtn" title="Skip Intro and Jump to Dashboard">
+                    <span>Skip Intro</span>
+                    <i class="fa-solid fa-forward-step"></i>
+                    <kbd>ESC</kbd>
+                </button>
+            </div>
+
+            <div class="intro-hud-bottom">
+                <div class="intro-loading-text">
+                    <i class="fa-solid fa-atom fa-spin"></i>
+                    <span id="introStatusText">Examining The Veritas Chronicle Archives...</span>
+                </div>
+                <div class="intro-progress-track">
+                    <div class="intro-progress-bar" id="introProgressBar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic Mesh Background -->
+    <div class="mesh-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span class="pulse-ring"></span>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">VERITAS<span class="gradient-text">AI</span></span>
+                    <span class="brand-tag" data-i18n="brand_tag">Neural News Intelligence</span>
+                </div>
+            </div>
+
+            <div class="nav-controls">
+                <!-- Language Switcher -->
+                <div class="lang-switch-group" title="Switch Language / भाषा बदलें">
+                    <button class="lang-btn active" id="langEnBtn" data-lang="en">EN</button>
+                    <button class="lang-btn" id="langHiBtn" data-lang="hi">हिंदी</button>
+                </div>
+
+                <div class="model-badge" id="modelBadge" title="Active Model Backend">
+                    <span class="status-dot"></span>
+                    <span id="modelBadgeText" data-i18n="model_badge">RoBERTa Transformer Model</span>
+                </div>
+
+                <!-- Replay Cinematic 3D Intro Button -->
+                <button class="nav-btn nav-btn-icon" id="replayIntroBtn" title="Replay 3D Newspaper Dive Intro">
+                    <i class="fa-solid fa-film"></i>
+                </button>
+
+                <!-- Analytics Dashboard Button -->
+                <button class="nav-btn nav-btn-labeled" id="analyticsToggleBtn" title="Analytics Dashboard & Trends">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span class="nav-btn-label" data-i18n="nav_analytics">Analytics</span>
+                </button>
+
+                <!-- History Drawer Button -->
+                <button class="nav-btn nav-btn-icon" id="historyToggleBtn" title="Analysis History">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span class="badge-count" id="historyCount">0</span>
+                </button>
+
+                <button class="nav-btn nav-btn-icon" id="infoToggleBtn" title="Architecture & Training">
+                    <i class="fa-solid fa-circle-info"></i>
+                </button>
+
+                <button class="nav-btn nav-btn-icon theme-toggle" id="themeToggleBtn" title="Toggle Theme">
+                    <i class="fa-solid fa-sun light-icon"></i>
+                    <i class="fa-solid fa-moon dark-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container main-content">
+        <!-- Dynamic Time-Based Greeting Banner with Voice Assistant -->
+        <div class="greeting-bar" id="greetingBar">
+            <div class="greeting-content">
+                <span class="greeting-icon" id="greetingIcon">☀️</span>
+                <div class="greeting-text-box">
+                    <h4 class="greeting-title" id="greetingTitle">Good Afternoon, Welcome!</h4>
+                    <p class="greeting-subtitle" id="greetingSubtitle">Ready to analyze and verify today's headlines?</p>
+                </div>
+            </div>
+            
+            <div class="greeting-right-controls">
+                <!-- 3D Newspaper Cinematic Experience Button -->
+                <button class="voice-btn intro-play-btn" id="playIntroBannerBtn" title="Play 3D Newspaper Dive Animation">
+                    <span class="voice-icon-box">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </span>
+                    <span class="voice-text">3D Newspaper Experience</span>
+                </button>
+
+                <!-- Voice Assistant Speak Button -->
+                <button class="voice-btn pulse-voice" id="voiceGreetingBtn" title="Listen to Voice Greeting & Project Brief">
+                    <span class="voice-icon-box">
+                        <i class="fa-solid fa-volume-high" id="voiceIcon"></i>
+                    </span>
+                    <span class="voice-text" id="voiceBtnText" data-i18n="listen_brief_btn">Speak Greeting & Brief</span>
+                    <span class="voice-wave" id="voiceWave">
+                        <span></span><span></span><span></span><span></span>
+                    </span>
+                </button>
+
+                <div class="greeting-live-time">
+                    <i class="fa-regular fa-clock"></i>
+                    <span id="liveClock">00:00:00 PM</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-badge">
+                <i class="fa-solid fa-brain"></i>
+                <span data-i18n="hero_badge">Multimodal RoBERTa Deep Learning Intelligence</span>
+            </div>
+            <h1 class="hero-title">
+                <span data-i18n="hero_title_1">Detect Misinformation with</span> <span class="gradient-text" data-i18n="hero_title_2">Neural Precision</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">
+                Inspect text articles, viral screenshots, news links, or voice dictations. Our deep RoBERTa transformer evaluates sensationalism, citation credibility, and deceitful patterns in real time.
+            </p>
+        </section>
+
+        <!-- Main Analyzer Card -->
+        <section class="analyzer-wrapper">
+            <div class="glass-card main-card">
+                <!-- Mode Switcher Tabs -->
+                <div class="card-tabs">
+                    <button class="tab-btn active" data-tab="text" id="tabTextBtn">
+                        <i class="fa-solid fa-align-left"></i> <span data-i18n="tab_text">Article Text</span>
+                    </button>
+                    <button class="tab-btn" data-tab="url" id="tabUrlBtn">
+                        <i class="fa-solid fa-link"></i> <span data-i18n="tab_url">News URL Extractor</span>
+                    </button>
+                    <button class="tab-btn" data-tab="ocr" id="tabOcrBtn">
+                        <i class="fa-solid fa-camera"></i> <span data-i18n="tab_ocr">Screenshot & Image OCR</span>
+                    </button>
+                    <div class="tab-indicator"></div>
+                </div>
+
+                <!-- Sample Article Loader Bar -->
+                <div class="sample-bar">
+                    <span class="sample-label"><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="quick_samples">Quick Samples:</span></span>
+                    <div class="sample-chips">
+                        <button class="chip chip-real" data-type="real" data-index="0">
+                            <i class="fa-solid fa-circle-check"></i> <span data-i18n="sample_real_1">Real: Space Research</span>
+                        </button>
+                        <button class="chip chip-real" data-type="real" data-index="1">
+                            <i class="fa-solid fa-circle-check"></i> <span data-i18n="sample_real_2">Real: Fed Economy</span>
+                        </button>
+                        <button class="chip chip-fake" data-type="fake" data-index="0">
+                            <i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="sample_fake_1">Fake: Secret Microchips</span>
+                        </button>
+                        <button class="chip chip-fake" data-type="fake" data-index="1">
+                            <i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="sample_fake_2">Fake: Miracle Cure</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Input Panels -->
+                <div class="input-container">
+                    <!-- Text Area Input with Voice Microphone Dictate -->
+                    <div class="tab-panel active" id="textPanel">
+                        <div class="textarea-wrapper" id="textAreaWrapper">
+                            <textarea 
+                                id="newsInput" 
+                                placeholder="Paste article headline or body text here for deep credibility scan (e.g. 'NASA discovers new exoplanet atmosphere...' or 'SHOCKING: Secret government conspiracy revealed...')" 
+                                rows="6"
+                            ></textarea>
+
+                            <!-- Speech-to-Text Microphone Dictation Button -->
+                            <button class="mic-dictate-btn" id="micDictateBtn" title="Speak to Dictate (English / Hindi)">
+                                <i class="fa-solid fa-microphone" id="micIcon"></i>
+                                <span class="mic-pulse" id="micPulse"></span>
+                            </button>
+
+                            <!-- Laser Scanning Overlay -->
+                            <div class="scanner-overlay" id="scannerOverlay">
+                                <div class="laser-beam"></div>
+                                <div class="scan-grid"></div>
+                                <div class="scanner-status">
+                                    <div class="scanner-spinner"></div>
+                                    <span id="scanStatusText">Tokenizing input text...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mic-status-bar" id="micStatusBar">
+                            <span class="mic-status-dot"></span>
+                            <span id="micStatusText">Listening... Speak headline or claim now.</span>
+                        </div>
+                    </div>
+
+                    <!-- URL Input Panel -->
+                    <div class="tab-panel" id="urlPanel">
+                        <div class="url-input-wrapper">
+                            <div class="url-icon"><i class="fa-solid fa-globe"></i></div>
+                            <input 
+                                type="url" 
+                                id="newsUrlInput" 
+                                placeholder="https://example.com/news/article-headline-2026"
+                            />
+                        </div>
+                        <p class="url-hint">
+                            <i class="fa-solid fa-circle-info"></i> <span data-i18n="url_hint">We will scrape the article title and text content on the server and evaluate its credibility automatically.</span>
+                        </p>
+                    </div>
+
+                    <!-- Image / Screenshot OCR Input Panel -->
+                    <div class="tab-panel" id="ocrPanel">
+                        <div class="ocr-dropzone" id="ocrDropzone">
+                            <input type="file" id="ocrFileInput" accept="image/png, image/jpeg, image/webp" class="ocr-file-input">
+                            <div class="ocr-dropzone-content" id="ocrPromptContent">
+                                <div class="ocr-icon-box">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                </div>
+                                <h4 data-i18n="ocr_title">Upload Viral Screenshot or Image</h4>
+                                <p data-i18n="ocr_desc">Drag & drop WhatsApp forwards, tweets, or headlines (PNG, JPG, WebP) or click to browse.</p>
+                                <span class="ocr-badge"><i class="fa-solid fa-bolt"></i> Client-Side Neural OCR Engine</span>
+                            </div>
+                            <!-- Image Preview & OCR progress -->
+                            <div class="ocr-preview-container hidden" id="ocrPreviewContainer">
+                                <img id="ocrPreviewImage" alt="OCR Preview" class="ocr-preview-img">
+                                <div class="ocr-progress-box" id="ocrProgressBox">
+                                    <div class="ocr-progress-header">
+                                        <span id="ocrProgressLabel">Extracting text from image...</span>
+                                        <span id="ocrPercent">0%</span>
+                                    </div>
+                                    <div class="ocr-progress-bar">
+                                        <div class="ocr-progress-fill" id="ocrProgressFill"></div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-ghost remove-img-btn" id="removeOcrImgBtn">
+                                    <i class="fa-solid fa-xmark"></i> Change Image
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Footer Bar -->
+                <div class="input-footer">
+                    <div class="stats-counter">
+                        <span id="wordCount">0 words</span>
+                        <span class="counter-divider">•</span>
+                        <span id="charCount">0 characters</span>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-ghost" id="clearBtn" title="Clear input">
+                            <i class="fa-solid fa-trash-can"></i> <span data-i18n="clear_btn">Clear</span>
+                        </button>
+                        <button class="btn btn-primary btn-glow" id="analyzeBtn">
+                            <span class="btn-text"><i class="fa-solid fa-microchip"></i> <span data-i18n="scan_btn">Scan Credibility</span></span>
+                            <span class="btn-shine"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Results Section (Animated Reveal) -->
+        <section class="result-section hidden" id="resultSection">
+            <div class="glass-card result-card" id="resultCard">
+                <!-- Result Header / Verdict Banner -->
+                <div class="verdict-banner" id="verdictBanner">
+                    <div class="verdict-icon-box" id="verdictIconBox">
+                        <i class="fa-solid fa-shield-check" id="verdictIcon"></i>
+                    </div>
+                    <div class="verdict-info">
+                        <div class="verdict-badge-row">
+                            <span class="verdict-pill" id="verdictPill">VERIFIED CREDIBLE</span>
+                            <span class="model-tag" id="resultModelTag">RoBERTa Transformer</span>
+                        </div>
+                        <h2 class="verdict-headline" id="verdictHeadline">Content Appears Highly Authentic</h2>
+                        <p class="verdict-description" id="verdictDescription">
+                            Linguistic markers and deep contextual attention align with established journalistic standards.
+                        </p>
+                    </div>
+
+                    <!-- Circular Confidence Score Meter -->
+                    <div class="gauge-container">
+                        <svg class="circular-gauge" viewBox="0 0 120 120">
+                            <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+                            <circle class="gauge-fill" id="gaugeFill" cx="60" cy="60" r="50"></circle>
+                        </svg>
+                        <div class="gauge-value">
+                            <span class="gauge-number" id="confidenceValue">0</span><span class="gauge-percent">%</span>
+                            <span class="gauge-label" data-i18n="gauge_confidence">Confidence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Probability Distribution Bar -->
+                <div class="probability-section">
+                    <div class="prob-header">
+                        <span class="prob-title"><i class="fa-solid fa-chart-simple"></i> <span data-i18n="prob_title">Class Probability Distribution</span></span>
+                        <div class="prob-header-meta">
+                            <span class="citation-pill" id="citationPill"><i class="fa-solid fa-feather-pointed"></i> 0 Source Citations</span>
+                            <span class="web-corroboration-pill" id="webCorroborationPill"><i class="fa-solid fa-globe"></i> 0 Trusted Sources Found</span>
+                            <span class="latency-pill" id="latencyPill"><i class="fa-solid fa-bolt"></i> 42ms</span>
+                        </div>
+                    </div>
+                    <div class="dual-progress-bar">
+                        <div class="progress-bar-segment real-segment" id="realProgress" style="width: 50%;">
+                            <span class="segment-label" id="realProbText">Real: 50%</span>
+                        </div>
+                        <div class="progress-bar-segment fake-segment" id="fakeProgress" style="width: 50%;">
+                            <span class="segment-label" id="fakeProbText">Fake: 50%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prominent AI Accuracy & Transparency Notice Banner -->
+                <div class="ai-accuracy-disclaimer-banner">
+                    <div class="disclaimer-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <div class="disclaimer-content">
+                        <strong>AI Verification Notice:</strong> Veritas AI is an assistive digital intelligence signal and is <strong>not 100% accurate</strong>. Neural models judge stylistic patterns, institutional attributions, and live search corroboration. Always cross-check critical, sensitive, or breaking claims directly with primary official sources.
+                    </div>
+                </div>
+
+                <!-- Verification & Attribution Advisory Box -->
+                <div class="attribution-advisory-box hidden" id="attributionAdvisoryBox">
+                    <div class="advisory-icon"><i class="fa-solid fa-circle-info"></i></div>
+                    <div class="advisory-content">
+                        <div class="advisory-title-row">
+                            <h5 data-i18n="advisory_title">Verification & Source Attribution Advisory</h5>
+                            <span class="advisory-badge" id="advisoryBadge">Linguistic Analysis Limit</span>
+                        </div>
+                        <p id="advisoryText" data-i18n="advisory_desc">
+                            This text names a source or institution. Neural models evaluate writing style and structure, but cannot independently verify whether the claim is accurately attributed to that entity. Always cross-check with original primary sources.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Web Corroboration Verified Sources Box -->
+                <div class="web-corroboration-box hidden" id="webCorroborationBox">
+                    <div class="web-corrob-header">
+                        <div class="web-corrob-title">
+                            <i class="fa-solid fa-globe"></i> <span data-i18n="web_sources_title">Live Web Corroboration Matches</span>
+                        </div>
+                        <span class="web-corrob-badge" id="webCorrobBadge">0 Trusted Outlets</span>
+                    </div>
+                    <div class="web-corrob-list" id="webCorrobList">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Feature 3: In-Text Interactive Suspicious Word Heatmap -->
+                <div class="heatmap-card" id="heatmapCard">
+                    <div class="heatmap-header">
+                        <div class="heatmap-title">
+                            <i class="fa-solid fa-highlighter"></i> <span data-i18n="heatmap_title">Interactive In-Text Credibility Heatmap</span>
+                        </div>
+                        <div class="heatmap-legend">
+                            <span class="legend-item"><span class="legend-dot dot-red"></span> Clickbait / Trigger</span>
+                            <span class="legend-item"><span class="legend-dot dot-green"></span> Credible Marker</span>
+                            <span class="legend-item"><span class="legend-dot dot-yellow"></span> Shouting Caps</span>
+                        </div>
+                    </div>
+                    <div class="heatmap-body" id="heatmapBody">
+                        <!-- Populated dynamically with highlighted spans -->
+                    </div>
+                </div>
+
+                <!-- Linguistic & Explainability Grid -->
+                <div class="diagnostics-grid">
+                    <!-- Tone Box -->
+                    <div class="diag-card">
+                        <div class="diag-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                        <div class="diag-content">
+                            <div class="diag-title" data-i18n="tone_title">Sentiment & Tone</div>
+                            <div class="diag-value" id="toneValue">Journalistic & Objective</div>
+                        </div>
+                    </div>
+
+                    <!-- Uppercase & Shouting -->
+                    <div class="diag-card">
+                        <div class="diag-icon"><i class="fa-solid fa-font"></i></div>
+                        <div class="diag-content">
+                            <div class="diag-title" data-i18n="caps_title">Capitalization Ratio</div>
+                            <div class="diag-value" id="capsValue">0.0% Uppercase</div>
+                        </div>
+                    </div>
+
+                    <!-- Exclamation Marks -->
+                    <div class="diag-card">
+                        <div class="diag-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+                        <div class="diag-content">
+                            <div class="diag-title" data-i18n="punct_title">Sensational Punctuation</div>
+                            <div class="diag-value" id="punctValue">0 Exclamations</div>
+                        </div>
+                    </div>
+
+                    <!-- Objective Markers -->
+                    <div class="diag-card">
+                        <div class="diag-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+                        <div class="diag-content">
+                            <div class="diag-title" data-i18n="citations_title">Source Citations</div>
+                            <div class="diag-value" id="citationsValue">0 Objective Markers</div>
+                        </div>
+                    </div>
+
+                    <!-- Web Corroboration Card -->
+                    <div class="diag-card diag-card-web">
+                        <div class="diag-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                        <div class="diag-content">
+                            <div class="diag-title" data-i18n="web_corrob_title">Web Corroboration</div>
+                            <div class="diag-value" id="webCorrobValue">0 Trusted Sources Found</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 5: Side-by-Side Model Battle (RoBERTa vs Baseline ML) -->
+                <div class="battle-card" id="battleCard">
+                    <div class="battle-header">
+                        <div class="battle-title">
+                            <i class="fa-solid fa-scale-balanced"></i> <span data-i18n="battle_title">Dual-Model Intelligence Comparison (Battle Mode)</span>
+                        </div>
+                        <span class="battle-badge">Architecture Benchmarks</span>
+                    </div>
+                    <div class="battle-grid">
+                        <!-- Model A: RoBERTa Deep Transformer -->
+                        <div class="battle-col battle-roberta">
+                            <div class="battle-model-tag">
+                                <i class="fa-solid fa-brain"></i> RoBERTa Transformer (Active)
+                            </div>
+                            <div class="battle-stat-row">
+                                <span class="battle-label">Verdict & Confidence:</span>
+                                <span class="battle-value" id="robertaVerdictVal">Real (94.5%)</span>
+                            </div>
+                            <div class="battle-stat-row">
+                                <span class="battle-label">Inference Latency:</span>
+                                <span class="battle-value highlight-cyan" id="robertaLatencyVal">42ms</span>
+                            </div>
+                            <div class="battle-stat-row">
+                                <span class="battle-label">Architecture:</span>
+                                <span class="battle-value">12-Layer Bidirectional Attention</span>
+                            </div>
+                            <p class="battle-note">Captures subtle semantic nuance, context, and deceptive phrasing.</p>
+                        </div>
+
+                        <!-- Model B: TF-IDF + Logistic Regression Baseline -->
+                        <div class="battle-col battle-baseline">
+                            <div class="battle-model-tag">
+                                <i class="fa-solid fa-microchip"></i> Baseline Bag-of-Words (Fast ML)
+                            </div>
+                            <div class="battle-stat-row">
+                                <span class="battle-label">Verdict & Confidence:</span>
+                                <span class="battle-value" id="baselineVerdictVal">Fake (51.4%)</span>
+                            </div>
+                            <div class="battle-stat-row">
+                                <span class="battle-label">Inference Latency:</span>
+                                <span class="battle-value highlight-green" id="baselineLatencyVal">1.2ms</span>
+                            </div>
+                            <div class="battle-stat-row">
+                                <span class="battle-label">Architecture:</span>
+                                <span class="battle-value">TF-IDF Vectorizer + SGD Linear</span>
+                            </div>
+                            <p class="battle-note">Ultra-fast keyword frequency model, lacks deep contextual attention.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 6: Real-Time Fact-Check Cross-Referencing Search -->
+                <div class="factcheck-card" id="factCheckCard">
+                    <div class="factcheck-header">
+                        <div class="factcheck-title">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i> <span data-i18n="factcheck_title">Cross-Referenced Fact-Check Database</span>
+                        </div>
+                        <span class="factcheck-source-tag"><i class="fa-solid fa-building-columns"></i> Verified Archives</span>
+                    </div>
+                    <div class="factcheck-list" id="factCheckList">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Clickbait / Sensational Keywords Highlight Section -->
+                <div class="keywords-box" id="keywordsBox">
+                    <div class="keywords-header">
+                        <i class="fa-solid fa-tag"></i> <span data-i18n="keywords_header">Flagged Sensationalist / Clickbait Keywords:</span>
+                    </div>
+                    <div class="keywords-list" id="keywordsList">
+                        <span class="empty-keywords">No aggressive clickbait markers detected.</span>
+                    </div>
+                </div>
+
+                <!-- Result Actions Bar (With Certificate Download) -->
+                <div class="result-actions">
+                    <button class="btn btn-primary btn-glow" id="downloadCertBtn">
+                        <i class="fa-solid fa-award"></i> <span data-i18n="download_cert">Download Fact-Check Certificate (PDF/PNG)</span>
+                    </button>
+                    <button class="btn btn-secondary" id="copyResultBtn">
+                        <i class="fa-solid fa-copy"></i> <span data-i18n="copy_report">Copy Analysis Report</span>
+                    </button>
+                    <button class="btn btn-secondary" id="reScanBtn">
+                        <i class="fa-solid fa-arrow-rotate-right"></i> <span data-i18n="scan_another">Scan Another Article</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Section: Real News vs Fake News & Model Explanation -->
+        <section class="education-section">
+            <div class="section-header text-center">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span data-i18n="edu_badge">Fact-Checking Academy</span>
+                </div>
+                <h2 class="section-title">
+                    <span data-i18n="edu_title_1">Understanding</span> <span class="gradient-text" data-i18n="edu_title_2">Fake News vs Real News</span>
+                </h2>
+                <p class="section-subtitle" data-i18n="edu_subtitle">
+                    Discover how misinformation spreads, how to identify deceitful patterns, and how our neural RoBERTa model uncovers truth.
+                </p>
+            </div>
+
+            <!-- Comparison Grid (Real vs Fake News) -->
+            <div class="comparison-grid">
+                <!-- Real News Card -->
+                <div class="glass-card comp-card comp-real">
+                    <div class="comp-header">
+                        <div class="comp-icon-box real">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div>
+                            <h3 data-i18n="real_news_title">Anatomy of Real News</h3>
+                            <span class="comp-tag real-tag" data-i18n="real_news_tag">Credible & Verified</span>
+                        </div>
+                    </div>
+                    <ul class="comp-list">
+                        <li>
+                            <i class="fa-solid fa-check text-real"></i>
+                            <div>
+                                <strong data-i18n="real_point1_t">Named Sources & Attribution:</strong>
+                                <span data-i18n="real_point1_d">Cites specific researchers, institutional spokespersons, and peer-reviewed journals.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check text-real"></i>
+                            <div>
+                                <strong data-i18n="real_point2_t">Objective, Non-Sensational Tone:</strong>
+                                <span data-i18n="real_point2_d">Uses neutral phrasing without excessive capitalization, exclamation marks, or manufactured rage.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check text-real"></i>
+                            <div>
+                                <strong data-i18n="real_point3_t">Verifiable Data & Corrections:</strong>
+                                <span data-i18n="real_point3_d">Published by accountable news outlets with editorial standards and retraction transparency.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Fake News Card -->
+                <div class="glass-card comp-card comp-fake">
+                    <div class="comp-header">
+                        <div class="comp-icon-box fake">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <div>
+                            <h3 data-i18n="fake_news_title">Anatomy of Fake News</h3>
+                            <span class="comp-tag fake-tag" data-i18n="fake_news_tag">Misleading & Fabricated</span>
+                        </div>
+                    </div>
+                    <ul class="comp-list">
+                        <li>
+                            <i class="fa-solid fa-xmark text-fake"></i>
+                            <div>
+                                <strong data-i18n="fake_point1_t">Clickbait & Panic Framing:</strong>
+                                <span data-i18n="fake_point1_d">Uses urgent triggers like 'SHOCKING!', 'THEY DONT WANT YOU TO KNOW', and all-caps shouting.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-xmark text-fake"></i>
+                            <div>
+                                <strong data-i18n="fake_point2_t">Unverified Miracle / Conspiracy Claims:</strong>
+                                <span data-i18n="fake_point2_d">Makes extraordinary scientific or political claims without peer review or official records.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-xmark text-fake"></i>
+                            <div>
+                                <strong data-i18n="fake_point3_t">Manipulative Call-to-Action:</strong>
+                                <span data-i18n="fake_point3_d">Urges readers to 'Share before it gets deleted!' to exploit emotional algorithmic engagement.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- How Model Works Interactive Flow -->
+            <div class="glass-card how-it-works-card">
+                <div class="how-header">
+                    <div class="how-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <div>
+                        <h3 data-i18n="how_model_title">How This AI Model Operates</h3>
+                        <p class="text-muted" data-i18n="how_model_subtitle">A multi-layered transformer and lexical inspection pipeline.</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-steps">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <h4 data-i18n="step1_title">Deep Tokenization</h4>
+                        <p data-i18n="step1_desc">Input text is mapped into contextual subword token representations with attention masks.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <h4 data-i18n="step2_title">RoBERTa Attention Heads</h4>
+                        <p data-i18n="step2_desc">12 bidirectional transformer layers evaluate syntax, narrative cohesion, and deceptive framing.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <h4 data-i18n="step3_title">Explainability Radar</h4>
+                        <p data-i18n="step3_desc">Sensationalist keywords, emotional tone, and attribution density are extracted for transparent verdicts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Showcase Grid -->
+        <section class="features-section">
+            <div class="feature-card">
+                <div class="feat-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <h3 data-i18n="feat1_title">RoBERTa Attention</h3>
+                <p data-i18n="feat1_desc">Pretrained contextual embeddings capture deep semantic nuances and deceptive phrasing that simple keyword filters miss.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon"><i class="fa-solid fa-shield-virus"></i></div>
+                <h3 data-i18n="feat2_title">Clickbait & Tone Radar</h3>
+                <p data-i18n="feat2_desc">Lexical and sensationalist heuristic checks flag alarmist rhetoric, shouting caps, and manipulative call-to-actions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <h3 data-i18n="feat3_title">Sub-100ms Inference</h3>
+                <p data-i18n="feat3_desc">Optimized PyTorch pipelines deliver lightning-fast verification for single headlines, long articles, or live URLs.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- History Drawer (Slide-out) -->
+    <div class="history-drawer-overlay" id="drawerOverlay"></div>
+    <aside class="history-drawer" id="historyDrawer">
+        <div class="drawer-header">
+            <div class="drawer-title">
+                <i class="fa-solid fa-clock-rotate-left"></i> <span data-i18n="drawer_history_title">Analysis History</span>
+            </div>
+            <button class="drawer-close" id="drawerCloseBtn">&times;</button>
+        </div>
+        <div class="drawer-actions">
+            <button class="btn btn-sm btn-ghost" id="clearHistoryBtn">
+                <i class="fa-solid fa-trash-can"></i> <span data-i18n="clear_history">Clear History</span>
+            </button>
+        </div>
+        <div class="drawer-content" id="historyList">
+            <div class="empty-history">
+                <i class="fa-solid fa-inbox"></i>
+                <p data-i18n="empty_history">No scans recorded in this session yet.</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Feature 7: Analytics Dashboard & Session Trends Modal -->
+    <div class="modal-overlay" id="analyticsModal">
+        <div class="glass-card modal-card analytics-modal-card">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-chart-pie"></i> <span data-i18n="analytics_title">Session Analytics & Credibility Intelligence</span></h3>
+                <button class="modal-close" id="analyticsCloseBtn">&times;</button>
+            </div>
+            <div class="modal-body analytics-modal-body">
+                <!-- KPI Row -->
+                <div class="kpi-grid">
+                    <div class="kpi-box">
+                        <div class="kpi-num" id="kpiTotalScans">0</div>
+                        <div class="kpi-label" data-i18n="kpi_total">Total Articles Scanned</div>
+                    </div>
+                    <div class="kpi-box kpi-real">
+                        <div class="kpi-num" id="kpiRealRate">0%</div>
+                        <div class="kpi-label" data-i18n="kpi_real">Verified Credible Ratio</div>
+                    </div>
+                    <div class="kpi-box kpi-fake">
+                        <div class="kpi-num" id="kpiFakeRate">0%</div>
+                        <div class="kpi-label" data-i18n="kpi_fake">Misinformation Ratio</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-num" id="kpiAvgLatency">0ms</div>
+                        <div class="kpi-label" data-i18n="kpi_speed">Avg Inference Speed</div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h4><i class="fa-solid fa-chart-donut"></i> <span data-i18n="chart_pie_title">Class Distribution (Real vs Fake)</span></h4>
+                        <div class="canvas-wrapper">
+                            <canvas id="distributionChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h4><i class="fa-solid fa-chart-column"></i> <span data-i18n="chart_bar_title">Top Detected Clickbait Keywords</span></h4>
+                        <div class="canvas-wrapper">
+                            <canvas id="keywordsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature 4: Fact-Check Certificate Modal -->
+    <div class="modal-overlay" id="certificateModal">
+        <div class="glass-card modal-card cert-modal-card">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-award"></i> <span data-i18n="cert_modal_title">Veritas AI Credibility Certificate</span></h3>
+                <button class="modal-close" id="certCloseBtn">&times;</button>
+            </div>
+            <div class="modal-body cert-modal-body">
+                <!-- Printable Certificate Card -->
+                <div class="certificate-canvas-card" id="certificateCanvas">
+                    <div class="cert-border-corner top-left"></div>
+                    <div class="cert-border-corner top-right"></div>
+                    <div class="cert-border-corner bottom-left"></div>
+                    <div class="cert-border-corner bottom-right"></div>
+
+                    <div class="cert-header">
+                        <div class="cert-logo">
+                            <i class="fa-solid fa-shield-halved"></i> VERITAS AI
+                        </div>
+                        <div class="cert-id" id="certId">CERT-2026-98124</div>
+                    </div>
+
+                    <div class="cert-title-block">
+                        <h2>OFFICIAL CREDIBILITY VERIFICATION REPORT</h2>
+                        <p class="cert-subtitle">Neural Deep-Learning RoBERTa Fact-Check Assessment</p>
+                    </div>
+
+                    <div class="cert-headline-box">
+                        <span class="cert-label">Scanned News Headline / Content:</span>
+                        <div class="cert-headline-text" id="certHeadline">Headline text here...</div>
+                    </div>
+
+                    <div class="cert-stats-grid">
+                        <div class="cert-stat-box">
+                            <span class="cert-stat-title">Verdict Determination</span>
+                            <span class="cert-stat-pill" id="certVerdictPill">VERIFIED CREDIBLE</span>
+                        </div>
+                        <div class="cert-stat-box">
+                            <span class="cert-stat-title">Confidence Rating</span>
+                            <span class="cert-stat-val" id="certConfidenceVal">94.5%</span>
+                        </div>
+                        <div class="cert-stat-box">
+                            <span class="cert-stat-title">Linguistic Tone</span>
+                            <span class="cert-stat-val" id="certToneVal">Journalistic</span>
+                        </div>
+                        <div class="cert-stat-box">
+                            <span class="cert-stat-title">Inspection Date</span>
+                            <span class="cert-stat-val" id="certDateVal">2026-09-12</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-footer">
+                        <div class="cert-seal">
+                            <i class="fa-solid fa-stamp"></i>
+                            <span>VERIFIED BY VERITAS ENGINE</span>
+                        </div>
+                        <div class="cert-qr-mock">
+                            <i class="fa-solid fa-qrcode"></i>
+                            <span>SECURE AUTH-HASH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cert-download-actions">
+                    <button class="btn btn-primary btn-glow" id="saveCertPngBtn">
+                        <i class="fa-solid fa-download"></i> <span data-i18n="download_png">Download Certificate (High-Res PNG)</span>
+                    </button>
+                    <button class="btn btn-secondary" id="printCertBtn">
+                        <i class="fa-solid fa-print"></i> <span data-i18n="print_cert">Print / Save as PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Architecture & Training Modal -->
+    <div class="modal-overlay" id="infoModal">
+        <div class="glass-card modal-card">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-microchip"></i> <span data-i18n="info_title">Model Architecture & Training</span></h3>
+                <button class="modal-close" id="modalCloseBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="tech-stack-row">
+                    <span class="tech-pill">Python 3.10+</span>
+                    <span class="tech-pill">PyTorch 2.0+</span>
+                    <span class="tech-pill">RoBERTa Transformers</span>
+                    <span class="tech-pill">Flask REST Engine</span>
+                    <span class="tech-pill">Web Speech API</span>
+                    <span class="tech-pill">Tesseract OCR</span>
+                    <span class="tech-pill">Chart.js Analytics</span>
+                </div>
+                
+                <h4>How It Works:</h4>
+                <p>
+                    1. <strong>Multimodal Ingestion:</strong> Ingests typed text, web URLs via scraper, voice audio via Speech-to-Text, or viral image screenshots via Neural OCR.
+                </p>
+                <p>
+                    2. <strong>Hybrid Transformer & Citation Layer:</strong> Deep 12-layer RoBERTa transformer self-attention embeddings evaluate syntactic cohesion and style alongside a source-verifiability heuristic that cross-checks institutional citations, named journals, and official records to prevent false positives on dramatic real stories.
+                </p>
+                <p>
+                    3. <strong>Explainability & Cross-Referencing:</strong> Generates word-level interactive heatmaps, tone markers, and checks against real-world fact-check archives.
+                </p>
+
+                <div class="transparency-box">
+                    <h5><i class="fa-solid fa-triangle-exclamation"></i> Crucial Model Limitations & Transparency Notice</h5>
+                    <p>
+                        This system uses a 3-signal architecture combining neural RoBERTa linguistic analysis, structured attribution checks, and real-time live web corroboration. Neural language models evaluate writing style and structure, not empirical physical truth.
+                    </p>
+                    <p style="margin-top: 8px;">
+                        <strong>Web Corroboration Scope:</strong> Web verification cross-references reputable journalistic and academic domains (Reuters, AP, BBC, NASA, Nature, CDC, etc.). Web corroboration works best for established or previously-reported claims; very recent breaking news may show lower confidence until indexed by search engines. Always cross-check critical news with primary source documents.
+                    </p>
+                </div>
+
+                <h4>Fine-Tuning on Custom Datasets:</h4>
+                <div class="code-snippet">
+                    <code>python model_training/train_bert.py --epochs 3 --batch_size 16</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Frontend Controller Script -->
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=20260912_99"></script>
+</body>
+</html>
